@@ -12,6 +12,8 @@ namespace aoc {
     // Each line is a different string
     std::vector<std::string> ReadLines(const char* filename);
 
+    std::vector<std::string> strToVecStr(const std::string& str);
+
     // Create generic for integers and parse from string
     template <typename IntType = int>
     std::vector<IntType> ParseIntegers(const std::vector<std::string>& strings, int base =10)
@@ -37,4 +39,5 @@ namespace aoc {
     std::vector<std::string> ReadCommaDelimitedFile(const char* filename);
 
     std::vector<int> ParseWhiteSpace(std::string str);
+
 }

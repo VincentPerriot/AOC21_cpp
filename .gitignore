@@ -1,1 +1,5 @@
 /build
+utils/htmltext.ps1
+puzzles/*/script2.ps1
+puzzles/*/input.txt
+puzzles/*/testInput.txt

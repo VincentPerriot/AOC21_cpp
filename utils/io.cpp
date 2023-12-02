@@ -1,6 +1,8 @@
 #include "io.h"
 #include <fstream>
 #include <sstream>
+#include <filesystem>
+#include <iostream>
 
 namespace aoc {
     std::string ReadFile(const char *filename)
@@ -20,13 +22,17 @@ namespace aoc {
     std::vector<std::string> ReadLines(const char *filename)
     {
         std::ifstream stream(filename);
-
+        
         std::vector<std::string> lines;
         std::string line;
 
+        int i = 0;
         while(std::getline(stream, line))
         {
+            if (i == 0)
+                line = line.substr(3); 
             lines.emplace_back(std::move(line));
+            i++;
         }
 
         stream.close();
@@ -59,6 +65,21 @@ namespace aoc {
         while (strStream >> num) 
         {
             res.push_back(num);
+        }
+
+        return res;
+    }
+
+
+    std::vector<std::string> strToVecStr(const std::string& str)
+    {
+        std::vector<std::string> res;
+        std::stringstream strStream(str);
+        std::string new_str;
+
+        while (strStream >> new_str)
+        {
+            res.push_back(new_str);
         }
 
         return res;
